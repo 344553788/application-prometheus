@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: application-prometheus
+  profiles:
+    active: dev
+server:
+  context-path: /
+  port: 9000
+
+logging:
+  level:
+    root: INFO
+management:
+  metrics:
+    tags:
+      application: ${spring.application.name}
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
